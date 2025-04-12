@@ -1,5 +1,6 @@
 if __name__ == '__main__':
     n = int(input())
     arr = map(int, input().split())
-number = list(set(arr))
-print(number[-2])
+    number = list(set(arr))
+    number.sort()
+    print(number[-2])

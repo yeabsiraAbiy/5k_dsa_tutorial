@@ -1,0 +1,11 @@
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        sorted_num = sorted(nums)
+        num_dict = {}
+        ans = []
+        for idx,val in enumerate(sorted_num):
+            if val not in num_dict:
+                num_dict[val] = idx
+        for num in nums:
+            ans.append(num_dict[num])
+        return ans

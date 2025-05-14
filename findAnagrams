@@ -1,0 +1,25 @@
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+
+        tar = Counter(p)
+        ref = Counter(s[:len(p)])
+
+        res = []
+        if tar == ref:
+            res.append(0)
+
+        l = 0
+        for r in range(len(p), len(s)):
+            red = s[l]
+            add = s[r]
+
+            ref[red] -= 1
+            ref[add] += 1
+
+            if ref[red] == 0:
+                del ref[red]
+
+            if tar == ref:
+                res.append(l + 1)
+            l += 1
+        return res
